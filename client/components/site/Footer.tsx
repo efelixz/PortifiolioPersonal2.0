@@ -17,7 +17,7 @@ export default function Footer() {
         </div>
         <nav className="grid grid-cols-2 gap-3 text-sm text-white/70">
           <a href="#home" className="hover:text-white">Home</a>
-          <a href="#projetos" className="hover:text-white">Projetos</a>
+          <a href="/projetos" className="hover:text-white">Projetos</a>
           <a href="#sobre" className="hover:text-white">Sobre</a>
           <a href="#contato" className="hover:text-white">Contato</a>
         </nav>
