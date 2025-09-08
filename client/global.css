@@ -106,7 +106,7 @@
   html { scroll-behavior: smooth; }
 
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-background text-foreground antialiased font-sans;
     background: radial-gradient(1200px 600px at 20% -10%, hsl(260 70% 55% / 0.18), transparent 60%),
                 radial-gradient(900px 500px at 90% 10%, hsl(220 80% 60% / 0.18), transparent 60%),
                 linear-gradient(hsl(var(--background)), hsl(var(--background)));
