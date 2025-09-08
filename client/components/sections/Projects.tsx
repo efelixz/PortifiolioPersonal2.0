@@ -35,36 +35,11 @@ export default function Projects() {
         </div>
         <div className="grid gap-6 md:grid-cols-3">
           {projects.map((p, i) => (
-            <motion.article
-              key={p.title}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.06 }}
-              className="group overflow-hidden rounded-xl border border-white/10 bg-white/5 backdrop-blur"
-            >
-              <div className="relative aspect-video overflow-hidden">
-                <img src={p.img} alt="" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent" />
+            <motion.div key={p.title} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.06 }}>
+              <div className="h-full">
+                <ProjectCard image={p.img} title={p.title} description={p.desc} stack={p.stack} caseUrl="#contato" codeUrl="#" />
               </div>
-              <div className="p-5">
-                <h3 className="text-lg font-semibold text-white">{p.title}</h3>
-                <p className="mt-1 text-sm text-white/60">{p.desc}</p>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {p.stack.map((s) => (
-                    <span key={s} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">
-                      {s}
-                    </span>
-                  ))}
-                </div>
-                <a
-                  href="#contato"
-                  className="mt-4 inline-flex rounded-md bg-gradient-to-r from-indigo-500 to-fuchsia-500 px-4 py-2 text-sm font-semibold text-white shadow hover:brightness-110"
-                >
-                  Ver Case Completo
-                </a>
-              </div>
-            </motion.article>
+            </motion.div>
           ))}
         </div>
       </div>
