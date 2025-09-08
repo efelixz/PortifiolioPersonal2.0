@@ -19,7 +19,7 @@ export default function Footer() {
           <a href="#home" className="hover:text-white">Home</a>
           <a href="/projetos" className="hover:text-white">Projetos</a>
           <a href="#sobre" className="hover:text-white">Sobre</a>
-          <a href="#contato" className="hover:text-white">Contato</a>
+          <a href="/contato" className="hover:text-white">Contato</a>
         </nav>
         <div className="flex items-center gap-3 md:justify-end">
           <a href="mailto:contato@jefferson.dev" aria-label="Email" className="rounded-md p-2 text-white/70 hover:bg-white/5 hover:text-white">
