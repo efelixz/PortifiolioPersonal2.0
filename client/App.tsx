@@ -26,6 +26,7 @@ const App = () => (
           <main className="pt-16">
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/projetos" element={<ProjectsPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
