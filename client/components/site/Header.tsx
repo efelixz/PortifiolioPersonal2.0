@@ -14,11 +14,11 @@ export default function Header() {
 
   const handleDownloadCV = useCallback(() => {
     const content = `Currículo — Jefferson Felix\n\nCargo: Desenvolvedor Frontend & Automação\nStack: React, TypeScript, Tailwind, Node.js, RPA, IA\nResumo: Construindo interfaces rápidas, escaláveis e com impacto real.`;
-    const blob = new Blob([content], { type: "application/pdf" });
+    const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "Jefferson-Felix-CV.pdf";
+    a.download = "Jefferson-Felix-CV.txt";
     document.body.appendChild(a);
     a.click();
     a.remove();
