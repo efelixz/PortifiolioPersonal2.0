@@ -1,5 +1,5 @@
 /** @import must precede all other statements */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Space+Grotesk:wght@600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -21,24 +21,24 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 258 90% 66%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 220 18% 95%;
+    --secondary-foreground: 240 6% 10%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 14% 90%;
+    --muted-foreground: 220 10% 46%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 220 90% 56%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 258 90% 66%;
 
     --radius: 0.5rem;
 
@@ -60,7 +60,7 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 240 10% 6%;
     --foreground: 210 40% 98%;
 
     --card: 222.2 84% 4.9%;
@@ -69,16 +69,16 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
+    --primary: 258 90% 66%;
     --primary-foreground: 222.2 47.4% 11.2%;
 
-    --secondary: 217.2 32.6% 17.5%;
+    --secondary: 240 9% 12%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 240 8% 18%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
+    --accent: 220 90% 56%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
@@ -103,7 +103,22 @@
     @apply border-border;
   }
 
+  html { scroll-behavior: smooth; }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    background: radial-gradient(1200px 600px at 20% -10%, hsl(260 70% 55% / 0.18), transparent 60%),
+                radial-gradient(900px 500px at 90% 10%, hsl(220 80% 60% / 0.18), transparent 60%),
+                linear-gradient(hsl(var(--background)), hsl(var(--background)));
+  }
+
+  .animated-gradient {
+    background: linear-gradient(110deg, hsl(220 90% 56% / 0.25), hsl(258 90% 66% / 0.25), hsl(220 90% 56% / 0.25));
+    background-size: 200% 100%;
+    animation: gradient 10s linear infinite;
+  }
+
+  .neon-ring {
+    box-shadow: 0 0 0 1px hsl(258 90% 66% / 0.35), 0 0 40px hsl(258 90% 66% / 0.35);
   }
 }
