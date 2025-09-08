@@ -2,12 +2,18 @@ import { useState } from "react";
 import { FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-export interface HiringPackButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface HiringPackButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   onGenerate?: () => void;
   label?: string;
 }
 
-export default function HiringPackButton({ onGenerate, label = "Hiring Pack", className, ...props }: HiringPackButtonProps) {
+export default function HiringPackButton({
+  onGenerate,
+  label = "Hiring Pack",
+  className,
+  ...props
+}: HiringPackButtonProps) {
   const [loading, setLoading] = useState(false);
 
   const handleClick = async () => {

@@ -38,7 +38,14 @@ export default function Particles({ className = "" }: { className?: string }) {
 
         const gx = p.x * width;
         const gy = p.y * height;
-        const grad = ctx.createRadialGradient(gx, gy, 0, gx, gy, p.r * 18 * DPR);
+        const grad = ctx.createRadialGradient(
+          gx,
+          gy,
+          0,
+          gx,
+          gy,
+          p.r * 18 * DPR,
+        );
         grad.addColorStop(0, "hsla(258,90%,66%,0.35)");
         grad.addColorStop(1, "hsla(258,90%,66%,0.0)");
         ctx.fillStyle = grad;

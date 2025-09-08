@@ -48,29 +48,83 @@ export default function ContactPage() {
               <form className="grid gap-4" onSubmit={onSubmit}>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="nome" className="mb-1 block text-sm text-white/80">Nome</label>
-                    <input id="nome" name="nome" className="w-full rounded-md border border-white/10 bg-slate-950/60 px-3 py-2 text-sm text-white placeholder:text-white/40 outline-none focus:border-indigo-500" placeholder="Seu nome" />
+                    <label
+                      htmlFor="nome"
+                      className="mb-1 block text-sm text-white/80"
+                    >
+                      Nome
+                    </label>
+                    <input
+                      id="nome"
+                      name="nome"
+                      className="w-full rounded-md border border-white/10 bg-slate-950/60 px-3 py-2 text-sm text-white placeholder:text-white/40 outline-none focus:border-indigo-500"
+                      placeholder="Seu nome"
+                    />
                   </div>
                   <div>
-                    <label htmlFor="email" className="mb-1 block text-sm text-white/80">Email</label>
-                    <input id="email" name="email" type="email" className="w-full rounded-md border border-white/10 bg-slate-950/60 px-3 py-2 text-sm text-white placeholder:text-white/40 outline-none focus:border-indigo-500" placeholder="voce@email.com" />
+                    <label
+                      htmlFor="email"
+                      className="mb-1 block text-sm text-white/80"
+                    >
+                      Email
+                    </label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      className="w-full rounded-md border border-white/10 bg-slate-950/60 px-3 py-2 text-sm text-white placeholder:text-white/40 outline-none focus:border-indigo-500"
+                      placeholder="voce@email.com"
+                    />
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="mensagem" className="mb-1 block text-sm text-white/80">Mensagem</label>
-                  <textarea id="mensagem" name="mensagem" className="h-32 w-full resize-none rounded-md border border-white/10 bg-slate-950/60 px-3 py-2 text-sm text-white placeholder:text-white/40 outline-none focus:border-indigo-500" placeholder="Conte um pouco sobre o projeto" />
+                  <label
+                    htmlFor="mensagem"
+                    className="mb-1 block text-sm text-white/80"
+                  >
+                    Mensagem
+                  </label>
+                  <textarea
+                    id="mensagem"
+                    name="mensagem"
+                    className="h-32 w-full resize-none rounded-md border border-white/10 bg-slate-950/60 px-3 py-2 text-sm text-white placeholder:text-white/40 outline-none focus:border-indigo-500"
+                    placeholder="Conte um pouco sobre o projeto"
+                  />
                 </div>
-                <button type="submit" className="mt-2 inline-flex items-center justify-center rounded-md bg-gradient-to-r from-indigo-500 to-fuchsia-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 transition hover:brightness-110">
+                <button
+                  type="submit"
+                  className="mt-2 inline-flex items-center justify-center rounded-md bg-gradient-to-r from-indigo-500 to-fuchsia-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 transition hover:brightness-110"
+                >
                   Enviar Mensagem
                 </button>
               </form>
 
               {/* Ações rápidas */}
               <div className="mt-6 flex flex-wrap gap-3">
-                <a href="#" className="rounded-md border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/90 hover:bg-white/10"><Linkedin className="mr-2 inline h-4 w-4"/> LinkedIn</a>
-                <a href="#" className="rounded-md border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/90 hover:bg-white/10"><Github className="mr-2 inline h-4 w-4"/> GitHub</a>
-                <a href="mailto:contato@jefferson.dev" className="rounded-md border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/90 hover:bg-white/10"><Mail className="mr-2 inline h-4 w-4"/> Email</a>
-                <a href="#" className="rounded-md border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/90 hover:bg-white/10"><PhoneCall className="mr-2 inline h-4 w-4"/> WhatsApp</a>
+                <a
+                  href="#"
+                  className="rounded-md border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/90 hover:bg-white/10"
+                >
+                  <Linkedin className="mr-2 inline h-4 w-4" /> LinkedIn
+                </a>
+                <a
+                  href="#"
+                  className="rounded-md border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/90 hover:bg-white/10"
+                >
+                  <Github className="mr-2 inline h-4 w-4" /> GitHub
+                </a>
+                <a
+                  href="mailto:contato@jefferson.dev"
+                  className="rounded-md border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/90 hover:bg-white/10"
+                >
+                  <Mail className="mr-2 inline h-4 w-4" /> Email
+                </a>
+                <a
+                  href="#"
+                  className="rounded-md border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/90 hover:bg-white/10"
+                >
+                  <PhoneCall className="mr-2 inline h-4 w-4" /> WhatsApp
+                </a>
               </div>
             </div>
           </motion.div>
@@ -85,7 +139,10 @@ export default function ContactPage() {
           >
             <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-indigo-600/20 to-fuchsia-600/20 p-6 backdrop-blur">
               <h3 className="text-lg font-semibold">Agenda aberta</h3>
-              <p className="mt-1 text-sm text-white/70">Marque uma conversa rápida para falarmos sobre sua ideia e próximos passos.</p>
+              <p className="mt-1 text-sm text-white/70">
+                Marque uma conversa rápida para falarmos sobre sua ideia e
+                próximos passos.
+              </p>
               <a
                 href="https://calendly.com/"
                 target="_blank"

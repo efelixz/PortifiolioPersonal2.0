@@ -32,7 +32,9 @@ export default function Header() {
           <div className="relative grid h-9 w-9 place-items-center rounded-md bg-gradient-to-br from-indigo-500 to-fuchsia-500 text-white shadow-[0_0_40px_hsl(258_100%_60%/.6)]">
             <span className="text-sm font-bold tracking-wider">JF</span>
           </div>
-          <span className="hidden text-sm font-semibold text-white/90 md:inline-block">Jefferson Felix</span>
+          <span className="hidden text-sm font-semibold text-white/90 md:inline-block">
+            Jefferson Felix
+          </span>
         </a>
 
         <nav className="hidden items-center gap-6 md:flex">
