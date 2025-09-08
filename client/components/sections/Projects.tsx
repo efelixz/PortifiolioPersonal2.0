@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import ProjectCard from "@/components/ProjectCard";
 
 const projects = [
   {
