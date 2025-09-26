@@ -24,6 +24,13 @@ export default defineConfig({
     assetsDir: "assets",
     sourcemap: false,
     minify: "terser",
+    // Adiciona suporte para rotas SPA
+    assetsInlineLimit: 4096,
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html'),
+      },
+    },
     rollupOptions: {
       output: {
         manualChunks: {

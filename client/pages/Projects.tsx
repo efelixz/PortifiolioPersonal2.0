@@ -97,6 +97,7 @@ export default function ProjectsPage() {
   const uniqueTechs = Array.from(new Set(projects.flatMap(p => p.tech)));
   const filters: (typeof ALL_TAG | string)[] = [ALL_TAG, ...uniqueTechs.sort()];
 
+  // Usar estado local sem modificar a URL
   const [active, setActive] = useState<(typeof filters)[number]>(ALL_TAG);
 
   const list = useMemo(() => {
