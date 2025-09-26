@@ -3,8 +3,10 @@ import Skills from "@/components/sections/Skills";
 import Projects from "@/components/sections/Projects";
 import CTA from "@/components/sections/CTA";
 import { useSEO } from "@/hooks/SEOHelper";
+import { usePageSignature } from "@/hooks/usePageSignature";
 
 export default function Index() {
+  usePageSignature('Home');
   useSEO({
     title: 'Jefferson Felix - Desenvolvedor Frontend & Automação',
     description: 'Desenvolvedor Frontend especializado em React, TypeScript, Tailwind CSS e soluções de automação. Criando interfaces modernas e experiências digitais excepcionais.',

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, PhoneCall, Calendar, Send, CheckCircle, AlertCircle } from "lucide-react";
 import Particles from "@/components/visual/Particles";
 import { useSEO } from "@/hooks/SEOHelper";
+import { usePageSignature } from "@/hooks/usePageSignature";
 import { useContactForm } from "@/hooks/useContactForm";
 import { useState } from "react";
 
@@ -13,6 +14,8 @@ export default function ContactPage() {
     assunto: '',
     mensagem: ''
   });
+  
+  usePageSignature('Contato');
   useSEO({
     title: 'Contato - Jefferson Felix',
     description: 'Entre em contato com Jefferson Felix para projetos frontend, automações e consultoria em desenvolvimento. Vamos conversar sobre seu próximo projeto.',

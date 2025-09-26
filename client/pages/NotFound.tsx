@@ -1,9 +1,12 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { usePageSignature } from "@/hooks/usePageSignature";
 
 const NotFound = () => {
   const location = useLocation();
 
+  usePageSignature('Página não encontrada');
+  
   useEffect(() => {
     console.error(
       "404 Error: User attempted to access non-existent route:",

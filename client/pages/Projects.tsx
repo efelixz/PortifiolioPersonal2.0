@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { useSEO } from "@/hooks/SEOHelper";
+import { usePageSignature } from "@/hooks/usePageSignature";
 import { usePortfolio } from "../hooks/usePortfolio";
 
 type Tech =
@@ -64,6 +65,7 @@ const techPalette: Record<string, string> = {
 
 export default function ProjectsPage() {
   const { projects: portfolioProjects } = usePortfolio();
+  usePageSignature('Projetos');
   
   useSEO({
     title: 'Projetos - Jefferson Felix',

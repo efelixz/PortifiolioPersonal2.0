@@ -2,9 +2,11 @@ import { motion } from "framer-motion";
 import { Code2, Rocket, Brain, Trophy, Calendar, MapPin, GraduationCap, Briefcase } from "lucide-react";
 import Particles from "@/components/visual/Particles";
 import { useSEO } from "@/hooks/SEOHelper";
+import { usePageSignature } from "@/hooks/usePageSignature";
 import { useState, useEffect } from "react";
 
 export default function AboutPage() {
+  usePageSignature('Sobre');
   useSEO({
     title: 'Sobre - Jefferson Felix',
     description: 'Conheça Jefferson Felix, desenvolvedor frontend especializado em React, TypeScript e automações. Experiência em soluções inovadoras e desenvolvimento ágil.',
