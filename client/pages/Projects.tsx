@@ -1,5 +1,7 @@
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
+import { useSEO } from "@/hooks/SEOHelper";
+import { usePortfolio } from "../hooks/usePortfolio";
 
 type Tech =
   | "React"
@@ -7,58 +9,35 @@ type Tech =
   | "Tailwind"
   | "Node.js"
   | "IA"
-  | "Automação";
+  | "Automação"
+  | "JavaScript"
+  | "Python"
+  | "RPA"
+  | "Express"
+  | "MongoDB"
+  | "API"
+  | "Selenium"
+  | "Figma"
+  | "CSS"
+  | "HTML"
+  | "Vite"
+  | "Framer Motion"
+  | "API Integration"
+  | "Pandas";
 
 type Project = {
   id: string;
   title: string;
   desc: string;
   image: string;
-  tech: Tech[];
+  tech: string[];
   codeUrl?: string;
   demoUrl?: string;
+  repositoryUrl?: string;
+  date?: string;
 };
 
 const ALL_TAG: Tech | "Todos" = "Todos" as const;
-
-const projects: Project[] = [
-  {
-    id: "saas-dashboard",
-    title: "Dashboard SaaS",
-    desc: "KPIs em tempo real, caching e charts interativos.",
-    image: "/placeholder.svg",
-    tech: ["React", "TypeScript", "Tailwind"],
-    codeUrl: "#",
-    demoUrl: "#",
-  },
-  {
-    id: "rpa-bots",
-    title: "Automação de Processos",
-    desc: "Bots de scraping e integrações para otimizar fluxos.",
-    image: "/placeholder.svg",
-    tech: ["Node.js", "Automação", "IA"],
-    codeUrl: "#",
-    demoUrl: "#",
-  },
-  {
-    id: "ai-insights",
-    title: "IA Insights",
-    desc: "Análises com IA e prompts orquestrados.",
-    image: "/placeholder.svg",
-    tech: ["React", "IA"],
-    codeUrl: "#",
-    demoUrl: "#",
-  },
-  {
-    id: "landing-animada",
-    title: "Landing Interativa",
-    desc: "Animações fluidas e UX premium.",
-    image: "/placeholder.svg",
-    tech: ["React", "Tailwind"],
-    codeUrl: "#",
-    demoUrl: "#",
-  },
-];
 
 const techPalette: Record<string, string> = {
   React: "from-sky-500 to-cyan-500 text-white",
@@ -67,25 +46,63 @@ const techPalette: Record<string, string> = {
   "Node.js": "from-lime-500 to-green-600 text-slate-900",
   IA: "from-fuchsia-500 to-purple-600 text-white",
   Automação: "from-amber-400 to-orange-500 text-slate-900",
+  JavaScript: "from-yellow-400 to-amber-500 text-slate-900",
+  Python: "from-blue-500 to-indigo-600 text-white",
+  RPA: "from-purple-500 to-indigo-600 text-white",
+  Express: "from-slate-500 to-gray-600 text-white",
+  MongoDB: "from-green-500 to-emerald-600 text-white",
+  API: "from-orange-500 to-red-500 text-white",
+  Selenium: "from-teal-400 to-blue-500 text-white",
+  Figma: "from-pink-500 to-purple-500 text-white",
+  CSS: "from-blue-400 to-purple-500 text-white",
+  HTML: "from-orange-400 to-red-500 text-white",
+  Vite: "from-purple-400 to-indigo-500 text-white",
+  "Framer Motion": "from-pink-400 to-purple-600 text-white",
+  "API Integration": "from-indigo-500 to-purple-600 text-white",
+  Pandas: "from-green-400 to-teal-500 text-white"
 };
 
-const filters: (typeof ALL_TAG | Tech)[] = [
-  ALL_TAG,
-  "React",
-  "TypeScript",
-  "Tailwind",
-  "Node.js",
-  "IA",
-  "Automação",
-];
-
 export default function ProjectsPage() {
+  const { projects: portfolioProjects } = usePortfolio();
+  
+  useSEO({
+    title: 'Projetos - Jefferson Felix',
+    description: 'Conheça os principais projetos desenvolvidos por Jefferson Felix. Aplicações React, TypeScript, automações e soluções frontend modernas.',
+    url: 'https://jeffersonfelix.dev/projetos',
+    type: 'website',
+    keywords: [
+      'projetos react',
+      'typescript projects',
+      'portfolio projetos',
+      'automação',
+      'frontend projects',
+      'desenvolvimento web'
+    ]
+  });
+
+  // Converter os projetos do portfolio para o formato esperado
+  const projects: Project[] = portfolioProjects.map(project => ({
+    id: project.id.toString(),
+    title: project.title,
+    desc: project.description,
+    image: project.image || "/placeholder.svg",
+    tech: project.tech,
+    codeUrl: project.github,
+    demoUrl: project.link,
+    repositoryUrl: project.github,
+    date: project.date
+  }));
+
+  // Gerar filtros dinamicamente com base nas tecnologias dos projetos
+  const uniqueTechs = Array.from(new Set(projects.flatMap(p => p.tech)));
+  const filters: (typeof ALL_TAG | string)[] = [ALL_TAG, ...uniqueTechs.sort()];
+
   const [active, setActive] = useState<(typeof filters)[number]>(ALL_TAG);
 
   const list = useMemo(() => {
     if (active === ALL_TAG) return projects;
-    return projects.filter((p) => p.tech.includes(active as Tech));
-  }, [active]);
+    return projects.filter((p) => p.tech.includes(active as string));
+  }, [active, projects]);
 
   return (
     <div className="relative min-h-screen bg-slate-950 text-white">

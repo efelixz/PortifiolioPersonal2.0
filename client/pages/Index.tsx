@@ -2,8 +2,25 @@ import Hero from "@/components/sections/Hero";
 import Skills from "@/components/sections/Skills";
 import Projects from "@/components/sections/Projects";
 import CTA from "@/components/sections/CTA";
+import { useSEO } from "@/hooks/SEOHelper";
 
 export default function Index() {
+  useSEO({
+    title: 'Jefferson Felix - Desenvolvedor Frontend & Automação',
+    description: 'Desenvolvedor Frontend especializado em React, TypeScript, Tailwind CSS e soluções de automação. Criando interfaces modernas e experiências digitais excepcionais.',
+    url: 'https://jeffersonfelix.dev/',
+    type: 'website',
+    keywords: [
+      'desenvolvedor frontend',
+      'react developer', 
+      'typescript',
+      'tailwind css',
+      'automação',
+      'javascript',
+      'portfolio'
+    ]
+  });
+
   return (
     <>
       <Hero />

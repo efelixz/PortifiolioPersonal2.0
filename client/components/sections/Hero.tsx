@@ -49,10 +49,11 @@ export default function Hero() {
               Ver Projetos
             </a>
             <a
-              href="#contato"
-              className="rounded-md border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white/90 backdrop-blur transition hover:bg-white/10 hover:text-white"
+              href="/contato"
+              className="rounded-md border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white/90 backdrop-blur transition hover:bg-white/10 hover:text-white inline-flex items-center"
             >
-              Entrar em Contato
+              Vamos Conversar
+              <span className="ml-1.5 inline-flex h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
             </a>
           </motion.div>
         </div>

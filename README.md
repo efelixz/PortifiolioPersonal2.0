@@ -1,35 +1,38 @@
 # Portfolio Jefferson Felix
 
-Portfolio pessoal desenvolvido com React, TypeScript, Tailwind CSS e Vite. Projeto exportado do Builder.io e reorganizado com estrutura escalável.
+Portfolio pessoal desenvolvido com React, TypeScript, Tailwind CSS e Vite, com foco em design moderno, performance e experiência do usuário.
 
-## 🚀 Estrutura do Projeto
+## 🚀 Visão Geral
+
+Este portfolio foi construído como uma Single Page Application (SPA) utilizando React e conta com um painel administrativo para gerenciamento de conteúdo. O projeto implementa as melhores práticas de desenvolvimento frontend moderno, incluindo componentes reutilizáveis, hooks personalizados e uma arquitetura escalável.
+
+## 📋 Recursos
+
+- **Dashboard Administrativo** - Gerencie projetos, skills, currículo e outras configurações
+- **Tema Dark/Light** - Sistema de temas com persistência local
+- **Totalmente Responsivo** - Experiência otimizada em qualquer dispositivo
+- **Animações Suaves** - Animações de interface com Framer Motion
+- **Formulário de Contato** - Integração completa com EmailJS
+- **Geração de CV** - Download de currículo personalizado
+- **Upload de Arquivos** - Suporte para upload de documentos PDF/DOCX
+- **Métricas de Uso** - Acompanhamento de interações dos usuários
+- **UI Componentizada** - Construída com Shadcn/UI e Tailwind
+
+## 📂 Estrutura do Projeto
 
 ```
-src/
-├── components/          # Componentes reutilizáveis
-│   ├── ui/             # Componentes base (shadcn/ui)
-│   ├── Header.tsx      # Header com navegação e toggle de tema
-│   ├── Footer.tsx      # Footer global
-│   ├── Layout.tsx      # Layout base da aplicação
-│   ├── CardProjeto.tsx # Card de projeto
-│   ├── Skills.tsx      # Seção de habilidades
-│   └── BotaoHiringPack.tsx # Botão para gerar hiring pack
-├── pages/              # Páginas da aplicação
-│   ├── Home.tsx        # Página inicial
-│   ├── Projetos.tsx    # Lista de projetos
-│   ├── Sobre.tsx       # Sobre mim
-│   ├── Contato.tsx     # Formulário de contato
-│   └── NotFound.tsx    # Página 404
-├── hooks/              # Hooks customizados
-│   └── useTheme.tsx    # Hook para gerenciar tema dark/light
-├── utils/              # Funções utilitárias
-│   ├── emailjs.ts      # Configuração EmailJS
-│   ├── pdfGenerator.ts # Geração de PDFs
-│   └── helpers.ts      # Funções auxiliares
-├── styles/             # Estilos globais
-│   └── global.css      # CSS global com Tailwind
-└── lib/                # Bibliotecas e configurações
-    └── utils.ts        # Utilitários do shadcn/ui
+project/
+├── client/            # Código cliente principal
+│   ├── components/    # Componentes reutilizáveis
+│   │   ├── ui/        # Componentes base (shadcn/ui)
+│   │   ├── sections/  # Seções das páginas
+│   │   └── site/      # Componentes específicos do site
+│   ├── hooks/         # Hooks customizados
+│   ├── lib/           # Utilitários e configurações
+│   └── pages/         # Páginas da aplicação
+├── public/            # Arquivos públicos
+├── server/            # Código de servidor
+└── shared/            # Código compartilhado cliente/servidor
 ```
 
 ## 🛠️ Tecnologias
@@ -93,7 +96,47 @@ npm run deploy
 ```
 
 ### Deploy Automático
-O projeto está configurado para deploy automático no GitHub Pages via GitHub Actions:
+O projeto está configurado para deploy automático no GitHub Pages via GitHub Actions.
+
+## 🔧 Instalação
+
+```bash
+# Clone o repositório
+git clone https://github.com/efelixz/PortifiolioPersonal2.0.git
+cd PortifiolioPersonal2.0
+
+# Instale as dependências
+npm install
+# ou
+pnpm install
+
+# Inicie o servidor de desenvolvimento
+npm run dev
+# ou
+pnpm dev
+```
+
+## 📃 Scripts Disponíveis
+
+- `npm run dev` - Inicia o servidor de desenvolvimento
+- `npm run build` - Gera o build de produção
+- `npm run preview` - Visualiza o build de produção localmente
+- `npm run lint` - Executa a verificação de linting
+- `npm run typecheck` - Executa a verificação de tipos TypeScript
+- `npm run test` - Executa os testes automatizados
+- `npm run deploy` - Deploy para GitHub Pages
+
+## 🤝 Como Contribuir
+
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`)
+3. Faça commit das suas alterações (`git commit -m 'Adiciona nova feature'`)
+4. Faça push para a branch (`git push origin feature/nova-feature`)
+5. Abra um Pull Request
+
+## 📝 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 1. **Push para main** → Deploy automático
 2. **Pull Request** → Build de verificação

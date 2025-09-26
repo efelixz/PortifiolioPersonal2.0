@@ -1,41 +1,47 @@
-import { Canvas } from "@react-three/fiber";
-import { Float, OrbitControls } from "@react-three/drei";
-import { Suspense, useRef } from "react";
-import * as THREE from "three";
-
-function Icosahedron() {
-  const meshRef = useRef<THREE.Mesh>(null);
-  return (
-    <Float speed={2} rotationIntensity={1.2} floatIntensity={1.5}>
-      <mesh ref={meshRef} castShadow receiveShadow>
-        <icosahedronGeometry args={[1.2, 0]} />
-        <meshStandardMaterial
-          color={new THREE.Color("#8b5cf6")}
-          metalness={0.7}
-          roughness={0.1}
-          emissive={new THREE.Color("#6d28d9")}
-          emissiveIntensity={0.8}
-        />
-      </mesh>
-    </Float>
-  );
-}
+import { motion } from "framer-motion";
 
 export default function Avatar3D() {
   return (
-    <div className="relative aspect-square w-full max-w-[320px] rounded-2xl p-[2px] neon-ring">
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-500/60 to-fuchsia-500/60 blur-2xl" />
-      <div className="relative rounded-2xl bg-gradient-to-b from-slate-900 to-slate-950 p-2">
-        <Canvas camera={{ position: [0, 0, 4] }} shadows>
-          <ambientLight intensity={0.6} />
-          <pointLight position={[5, 5, 5]} intensity={1.2} color={new THREE.Color("#60a5fa")} />
-          <pointLight position={[-5, -3, -5]} intensity={0.8} color={new THREE.Color("#c084fc")} />
-          <Suspense fallback={null}>
-            <Icosahedron />
-          </Suspense>
-          <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={1.2} />
-        </Canvas>
-      </div>
+    <div className="relative w-48 h-48 mx-auto">
+      {/* Main Avatar Circle */}
+      <motion.div
+        className="w-full h-full rounded-full bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 shadow-2xl"
+        animate={{
+          rotate: [0, 360],
+          scale: [1, 1.05, 1]
+        }}
+        transition={{
+          rotate: { duration: 20, repeat: Infinity, ease: "linear" },
+          scale: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+        }}
+      />
+      
+      {/* Inner Glow */}
+      <motion.div
+        className="absolute inset-4 rounded-full bg-gradient-to-br from-white/30 to-transparent"
+        animate={{
+          scale: [1, 1.1, 1],
+          opacity: [0.4, 0.7, 0.4]
+        }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+      
+      {/* Floating Ring */}
+      <motion.div
+        className="absolute inset-0 border-2 border-purple-300/40 rounded-full"
+        animate={{
+          rotate: [0, -360],
+          scale: [1, 1.2, 1]
+        }}
+        transition={{
+          rotate: { duration: 15, repeat: Infinity, ease: "linear" },
+          scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+        }}
+      />
     </div>
   );
 }

@@ -1,19 +1,21 @@
-import { defineConfig, Plugin } from "vite";
+import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
-import { createServer } from "./server";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
+export default defineConfig({
   // Base path for GitHub Pages deployment
-  base: mode === 'production' ? '/portfolio-jefferson/' : '/',
+  base: "/PortifiolioPersonal2.0/",
   
   server: {
-    host: "::",
+    host: "localhost",
     port: 8080,
-    fs: {
-      allow: [".", "./src", "./shared"],
-      deny: [".env", ".env.*", "*.{crt,pem}", "**/.git/**", "server/**"],
+    strictPort: false,
+    hmr: {
+      overlay: true,
+      protocol: 'ws',
+      host: 'localhost',
+      port: 8080,
     },
   },
   
@@ -28,19 +30,32 @@ export default defineConfig(({ mode }) => ({
           vendor: ['react', 'react-dom'],
           router: ['react-router-dom'],
           motion: ['framer-motion'],
-          three: ['three', '@react-three/fiber', '@react-three/drei'],
           ui: ['@radix-ui/react-accordion', '@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu'],
+          utils: ['lucide-react', 'clsx', 'tailwind-merge'],
+        },
+        assetFileNames: (assetInfo) => {
+          const info = assetInfo.name.split('.');
+          const ext = info[info.length - 1];
+          if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(ext)) {
+            return `images/[name]-[hash][extname]`;
+          }
+          if (/woff2?|eot|ttf|otf/i.test(ext)) {
+            return `fonts/[name]-[hash][extname]`;
+          }
+          return `assets/[name]-[hash][extname]`;
         },
       },
     },
+    // Configurações de performance
+    chunkSizeWarningLimit: 1000,
+    assetsInlineLimit: 4096,
   },
   
-  plugins: [react(), ...(mode === 'development' ? [expressPlugin()] : [])],
+  plugins: [react()],
   
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
-      "@shared": path.resolve(__dirname, "./shared"),
+      "@": path.resolve(__dirname, "./client"),
     },
   },
   
@@ -55,23 +70,5 @@ export default defineConfig(({ mode }) => ({
       '@radix-ui/react-dialog',
       '@radix-ui/react-dropdown-menu',
     ],
-    exclude: [
-      'three',
-      '@react-three/fiber',
-      '@react-three/drei',
-    ],
   },
-}));
-
-function expressPlugin(): Plugin {
-  return {
-    name: "express-plugin",
-    apply: "serve", // Only apply during development (serve mode)
-    configureServer(server) {
-      const app = createServer();
-
-      // Add Express app as middleware to Vite dev server
-      server.middlewares.use(app);
-    },
-  };
-}
+});

@@ -1,28 +1,15 @@
 import { motion } from "framer-motion";
+import { usePortfolio } from "@/hooks/usePortfolio";
 import ProjectCard from "@/components/ProjectCard";
 
-const projects = [
-  {
-    title: "Dashboard SaaS",
-    desc: "Visualizações em tempo real com React Query e Recharts.",
-    stack: ["React", "TypeScript", "Tailwind"],
-    img: "/placeholder.svg",
-  },
-  {
-    title: "Automação de Processos",
-    desc: "Bots de scraping e integrações com APIs para otimizar fluxos.",
-    stack: ["Node.js", "RPA", "IA"],
-    img: "/placeholder.svg",
-  },
-  {
-    title: "Landing Page Interativa",
-    desc: "Animações fluidas com Framer Motion e experiência premium.",
-    stack: ["React", "Framer Motion", "Vite"],
-    img: "/placeholder.svg",
-  },
-];
-
 export default function Projects() {
+  const { projects } = usePortfolio();
+  
+  // Show only completed projects in the portfolio
+  const featuredProjects = projects
+    .filter(p => p.status === 'Concluído')
+    .slice(0, 6); // Limit to 6 projects
+
   return (
     <section id="projetos" className="relative py-20">
       <div className="container">
@@ -36,9 +23,9 @@ export default function Projects() {
           </p>
         </div>
         <div className="grid gap-6 md:grid-cols-3">
-          {projects.map((p, i) => (
+          {featuredProjects.map((p, i) => (
             <motion.div
-              key={p.title}
+              key={p.id}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -46,12 +33,12 @@ export default function Projects() {
             >
               <div className="h-full">
                 <ProjectCard
-                  image={p.img}
+                  image={p.image || "/placeholder.svg"}
                   title={p.title}
-                  description={p.desc}
-                  stack={p.stack}
-                  caseUrl="#contato"
-                  codeUrl="#"
+                  description={p.description}
+                  stack={p.tech}
+                  caseUrl={p.link || "#contato"}
+                  codeUrl={p.github || "#"}
                 />
               </div>
             </motion.div>

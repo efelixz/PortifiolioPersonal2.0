@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline - Jefferson Felix</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .container {
+            text-align: center;
+            max-width: 500px;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #6366f1, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: linear-gradient(45deg, #6366f1, #ec4899);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+        }
+        
+        .status {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .status.offline {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: rgba(239, 68, 68, 0.3);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">📡</div>
+        <h1>Você está offline</h1>
+        <p>
+            Parece que você perdeu a conexão com a internet. 
+            Não se preocupe, você ainda pode navegar pelas páginas que já visitou!
+        </p>
+        
+        <button class="btn" onclick="tryReload()">
+            Tentar Novamente
+        </button>
+        
+        <div id="status" class="status offline">
+            <span class="pulse">●</span> Verificando conexão...
+        </div>
+    </div>
+
+    <script>
+        // Verificar status da conexão
+        function updateConnectionStatus() {
+            const status = document.getElementById('status');
+            
+            if (navigator.onLine) {
+                status.className = 'status';
+                status.innerHTML = '<span style="color: #22c55e;">●</span> Conectado! Você pode recarregar a página.';
+            } else {
+                status.className = 'status offline';
+                status.innerHTML = '<span class="pulse">●</span> Sem conexão...';
+            }
+        }
+
+        // Tentar recarregar
+        function tryReload() {
+            if (navigator.onLine) {
+                window.location.reload();
+            } else {
+                alert('Ainda sem conexão. Tente novamente quando estiver online.');
+            }
+        }
+
+        // Listeners para mudanças de conexão
+        window.addEventListener('online', updateConnectionStatus);
+        window.addEventListener('offline', updateConnectionStatus);
+
+        // Verificar status inicial
+        updateConnectionStatus();
+
+        // Verificar periodicamente
+        setInterval(updateConnectionStatus, 5000);
+
+        // Tentar voltar para a página inicial se a conexão voltar
+        window.addEventListener('online', () => {
+            setTimeout(() => {
+                if (confirm('Conexão restaurada! Deseja voltar para a página inicial?')) {
+                    window.location.href = '/';
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
