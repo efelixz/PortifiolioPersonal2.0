@@ -6,7 +6,7 @@ import { createRoot } from "react-dom/client";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ProjectsPage from "./pages/Projects";
@@ -61,7 +61,7 @@ function AppContent() {
   }, []);
 
   return (
-    <HashRouter>
+    <BrowserRouter>
       <ScrollProgress />
       <div className="min-h-screen bg-slate-950 text-white transition-colors duration-300">
         <Header />
@@ -85,7 +85,7 @@ function AppContent() {
         <BackToTop />
         {/* O AdvancedControlPanel foi movido para o Dashboard */}
       </div>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 

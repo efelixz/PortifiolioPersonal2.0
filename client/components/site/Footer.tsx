@@ -18,36 +18,36 @@ export default function Footer() {
           </p>
         </div>
         <nav className="grid grid-cols-2 gap-3 text-sm text-white/70">
-          <a href="#home" className="hover:text-white">
+          <a href="home" className="hover:text-white">
             Home
           </a>
-          <a href="/projetos" className="hover:text-white">
+          <a href="projetos" className="hover:text-white">
             Projetos
           </a>
-          <a href="#sobre" className="hover:text-white">
+          <a href="sobre" className="hover:text-white">
             Sobre
           </a>
-          <a href="/contato" className="hover:text-white">
+          <a href="contato" className="hover:text-white">
             Contato
           </a>
         </nav>
         <div className="flex items-center gap-3 md:justify-end">
           <a
-            href="mailto:contato@jefferson.dev"
+            href="mailto:jeffersonfelixz@outlook.com"
             aria-label="Email"
             className="rounded-md p-2 text-white/70 hover:bg-white/5 hover:text-white"
           >
             <Mail className="h-5 w-5" />
           </a>
           <a
-            href="#"
+            href="https://github.com/efelixz"
             aria-label="GitHub"
             className="rounded-md p-2 text-white/70 hover:bg-white/5 hover:text-white"
           >
             <Github className="h-5 w-5" />
           </a>
           <a
-            href="#"
+            href="https://www.linkedin.com/in/jeffersonfelizz/"
             aria-label="LinkedIn"
             className="rounded-md p-2 text-white/70 hover:bg-white/5 hover:text-white"
           >

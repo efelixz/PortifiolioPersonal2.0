@@ -4,7 +4,7 @@ export default function Studies() {
     useSEO({
         title: 'Estudos - Jefferson Felix',
         description: 'Cronograma de estudos e evolução técnica de Jefferson Felix. Acompanhe o desenvolvimento contínuo em React, TypeScript, Node.js e tecnologias modernas.',
-        url: 'https://jeffersonfelix.dev/estudos',
+        url: 'https://efelixz.me/estudos',
         type: 'website',
         keywords: [
             'cronograma estudos',

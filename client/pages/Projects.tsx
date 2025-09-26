@@ -70,7 +70,7 @@ export default function ProjectsPage() {
   useSEO({
     title: 'Projetos - Jefferson Felix',
     description: 'Conheça os principais projetos desenvolvidos por Jefferson Felix. Aplicações React, TypeScript, automações e soluções frontend modernas.',
-    url: 'https://jeffersonfelix.dev/projetos',
+    url: 'https://efelixz.me/projetos',
     type: 'website',
     keywords: [
       'projetos react',

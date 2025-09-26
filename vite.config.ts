@@ -24,8 +24,9 @@ export default defineConfig({
     assetsDir: "assets",
     sourcemap: false,
     minify: "terser",
-    // Adiciona suporte para rotas SPA
+    // Configuração para SPA
     assetsInlineLimit: 4096,
+    copyPublicDir: true,
     rollupOptions: {
       input: {
         main: path.resolve(__dirname, 'index.html'),

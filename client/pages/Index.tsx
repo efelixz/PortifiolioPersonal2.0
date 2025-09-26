@@ -10,7 +10,7 @@ export default function Index() {
   useSEO({
     title: 'Jefferson Felix - Desenvolvedor Frontend & Automação',
     description: 'Desenvolvedor Frontend especializado em React, TypeScript, Tailwind CSS e soluções de automação. Criando interfaces modernas e experiências digitais excepcionais.',
-    url: 'https://jeffersonfelix.dev/',
+    url: 'https://efelixz.me',
     type: 'website',
     keywords: [
       'desenvolvedor frontend',
