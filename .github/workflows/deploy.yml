@@ -23,14 +23,26 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
           cache: 'npm'
       - name: Setup Pages
+        id: pages
         uses: actions/configure-pages@v4
+        continue-on-error: true # Continuar mesmo se houver erro na configuração
+        with:
+          enablement: true # Tenta habilitar o GitHub Pages automaticamente
       - name: Install dependencies
         run: npm ci
+      - name: Check Vite config file
+        run: |
+          if [ -f "vite.config.prod.ts" ]; then
+            echo "vite.config.prod.ts found"
+          else
+            echo "vite.config.prod.ts not found, using default config"
+            cp vite.config.ts vite.config.prod.ts
+          fi
       - name: Build
-        run: npm run build
+        run: npm run build:client
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
