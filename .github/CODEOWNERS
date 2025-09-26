@@ -1,0 +1,14 @@
+# Proprietários globais do código
+* @efelixz
+
+# Proprietários de componentes de UI
+/client/components/ui/ @efelixz
+
+# Proprietários de seções do site
+/client/components/sections/ @efelixz
+/src/components/ @efelixz
+
+# Configurações do projeto
+*.json @efelixz
+*.js @efelixz
+*.ts @efelixz
