@@ -4,8 +4,8 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // Base path for GitHub Pages deployment
-  base: "/PortifiolioPersonal2.0/",
+  // Base path for custom domain
+  base: "/",
   
   server: {
     host: "localhost",
