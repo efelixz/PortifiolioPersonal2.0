@@ -25,28 +25,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:prod": "vite build --config vite.config.prod.ts",
-    "build:full": "npm run build:client && npm run build:server",
-    "build:client": "vite build",
-    "build:server": "vite build --config vite.config.server.ts",
-    "start": "node dist/server/node-build.mjs",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
-    "deploy:manual": "node scripts/manual-deploy.cjs",
-    "deploy:simple": "node scripts/deploy-simple.js",
-    "check-deploy": "node scripts/pre-deploy-check.js",
-    "test": "vitest --run",
-    "format.fix": "prettier --write .",
-    "typecheck": "tsc"
+    "format.fix": "prettier --write ."
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
-    "dotenv": "^17.2.1",
-    "express": "^5.1.0",
     "html2canvas": "^1.4.1",
     "jspdf": "^3.0.2",
-    "web-vitals": "^5.1.0",
     "zod": "^3.25.76"
   },
   "devDependencies": {

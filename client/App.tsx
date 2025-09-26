@@ -1,5 +1,6 @@
 import "./global.css";
 
+import { useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { createRoot } from "react-dom/client";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -44,6 +45,20 @@ import Footer from "@/components/site/Footer";
 // Componente principal com preload
 function AppContent() {
   useCriticalResourcePreload();
+
+  // Adiciona assinatura no console
+  useEffect(() => {
+    const styles = [
+      'color: #6366f1',
+      'font-size: 18px',
+      'font-weight: bold',
+      'text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3)',
+      'padding: 10px',
+    ].join(';');
+
+    console.log('%cDesenvolvido com ❤️ por Jefferson Felix', styles);
+    console.log('%cPortfólio profissional © 2024', 'color: #64748b; font-size: 14px');
+  }, []);
 
   return (
     <HashRouter>
